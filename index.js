@@ -78,7 +78,7 @@ const freeLancer = [
 const occupations = [
   "Writer",
   "Teacher",
-  "Programmer"
+  "Programmer",
   "Cook",
   "Musician",
   "Accountant",
@@ -109,12 +109,20 @@ const priceParent = document.getElementById("price");
 function render() {
     const freeLancersParent = document.getElementById("freelancer");
     const x = freeLancersList.map((y) => {
-      const listElement = document.createElement("li");
-      listElement.innerText = y.name;
-      return listElement;
+      const listElement1 = document.createElement("li");
+      listElement1.innerText = y.name;
+      return listElement1;
     })
     freeLancersParent.replaceChildren(...x);  
     
+    const occupationsParent = document.getElementById("occupations");
+    const xX = freeLancersList.map((y) => {
+      const listElement2 = document.createElement("li");
+      listElement2.innerText = y.occupation;
+      return listElement2;
+    })
+    occupationsParent.replaceChildren(...xX);
+
     const average = averagePrice();
     const averagePriceElement = document.getElementById("average");
     averagePriceElement.innerText = averagePrice().toFixed(2);
@@ -125,7 +133,7 @@ render();
 function newFreelancer () {
   const randomIndex = Math.floor(Math.random() * freeLancer.length);
   // console.log(randomIndex, freeLancer[randomIndex]);
-  const newLancer = {name: freeLancer[randomIndex] , occupation: "Graffiti artist", price: 70};
+  const newLancer = {name: freeLancer[randomIndex] , occupation: occupations[randomIndex], price: 70};
   freeLancersList.push(newLancer);
   averagePrice();
   render();
