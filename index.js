@@ -88,10 +88,21 @@ const occupations = [
 ];
 
 const price = [
-  "$30",
-  "$50",
-  "$70"
+  30,
+  50,
+  70,
+  80,
+  90,
+  60,
+  40,
+  20,
+  10,
+  100,
+  55,
+  75
 ];
+
+const maxFreelancers = 10;
 
 // const freeLancersParent = document.getElementById("freelancer");
 
@@ -123,22 +134,33 @@ function render() {
     })
     occupationsParent.replaceChildren(...xX);
 
+    const priceParent = document.getElementById("price");
+    const xYX = freeLancersList.map((y) => {
+      const listElement3 = document.createElement("li");
+      listElement3.innerText = y.price;
+      return listElement3;
+    })
+    priceParent.replaceChildren(...xYX);
+
     const average = averagePrice();
     const averagePriceElement = document.getElementById("average");
     averagePriceElement.innerText = averagePrice().toFixed(2);
 } 
 
 render();
-
 function newFreelancer () {
   const randomIndex = Math.floor(Math.random() * freeLancer.length);
   // console.log(randomIndex, freeLancer[randomIndex]);
-  const newLancer = {name: freeLancer[randomIndex] , occupation: occupations[randomIndex], price: 70};
+  const newLancer = {name: freeLancer[randomIndex] , occupation: occupations[randomIndex], price: price[randomIndex]};
   freeLancersList.push(newLancer);
   averagePrice();
   render();
+  if (freeLancersList.length >= maxFreelancers) {
+    clearInterval(addFreeLancerId);
+  }  
 } 
 const addFreeLancerId = setInterval(newFreelancer, 1000);
+
 
 function averagePrice() {
   let sumPrice = 0;
