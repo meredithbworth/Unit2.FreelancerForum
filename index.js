@@ -72,7 +72,8 @@ const freeLancer = [
   "Meredith",
   "Jackie",
   "Jess",
-  "Doobin"
+  "Doobin",
+  "Caitlin"
 ];
 
 const occupations = [
@@ -84,7 +85,8 @@ const occupations = [
   "Accountant",
   "Producer",
   "Dog Walker",
-  "Editor"
+  "Editor",
+  "Surgeon"
 ];
 
 const price = [
@@ -97,9 +99,7 @@ const price = [
   40,
   20,
   10,
-  100,
-  55,
-  75
+  100
 ];
 
 const maxFreelancers = 10;
